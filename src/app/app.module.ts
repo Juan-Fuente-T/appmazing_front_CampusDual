@@ -24,6 +24,9 @@ import { ProductUpdateComponent } from './product-update/product-update.componen
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
 registerLocaleData(localeEs);
 @NgModule({
   declarations: [
@@ -49,7 +52,9 @@ registerLocaleData(localeEs);
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    ReactiveFormsModule,
+    MatCheckboxModule
   ],
   providers: [
   {

@@ -12,3 +12,7 @@
 .card-content strong {
   margin: 5px;
 }
+mat-card-actions button {
+  margin: 8px;
+  justify-content: flex-end; /*curiosamente esto centra el icono en el boton*/
+}

@@ -16,31 +16,26 @@
             <input matInput type="text" name="price" [(ngModel)] = "product.price">
             <!-- <input matInput type="text" name="price" [value]="product.price |currency:'EUR'"> -->
         </mat-form-field>
-        <mat-form-field appearance="outline">
+       <mat-form-field appearance="outline">
             <mat-label>Activo</mat-label>
-            <input matInput type="text" name="active" [(ngModel)] = "product.active">
-            <!-- <input matInput type="text" name="active" [value]="product.active ? 'Activo' : 'Inactivo'"> -->
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-            <!-- <mat-slide-toggle [(ngModel)]="product.active">Slide me!</mat-slide-toggle>
-            <mat-slide-toggle labelPosition="before" [(ngModel)]="product.active">...and slide me too!</mat-slide-toggle> -->
-            <p><mat-slide-toggle [(ngModel)]="product.active">Cambiar estado</mat-slide-toggle></p>
-     <!-- <p><mat-slide-toggle labelPosition="before" [(ngModel)]="product.active">...and slide me too!</mat-slide-toggle></p> -->
-        </mat-form-field>
-
-        <mat-form-field appearance="outline">
+            <!-- <input matInput type="text" name="active" [(ngModel)] = "product.active" readonly> -->
+            <input matInput type="text" name="active" [value]="product.active ? 'Activo' : 'Inactivo'" readonly>
+            <!-- <mat-slide-toggle  [(ngModel)]="product.active">Cambiar estado</mat-slide-toggle> -->
+            <mat-slide-toggle  [formControl]="activeControl" (change)="toggleActive()">Cambiar estado</mat-slide-toggle>
+        </mat-form-field> 
+  
+        <!-- <mat-form-field appearance="outline">
+            <mat-label>Activo</mat-label>
+            <mat-checkbox [formControl]="activeControl">Cambiar estado</mat-checkbox>
+        </mat-form-field> -->
+        <mat-form-field appearance="outline" id="date">
             <mat-label>Fecha de alta</mat-label>
             <input matInput [matDatepicker]="datepicker" name="date_added" [(ngModel)]="product.date_added">
-            <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+            <!-- <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle> -->
+            <mat-datepicker-toggle matPrefix [for]="datepicker"></mat-datepicker-toggle>
             <mat-datepicker #datepicker>
             </mat-datepicker>
-            <!-- https://material.angular.io/components/select/overview
-            https://material.angular.io/components/button-toggle 
-            https://bbbootstrap.com/snippets/toggle-button-day-night-mode-42020730
-            https://material.angular.io/components/slide-toggle/overview
-            -->
             <!-- <input matInput type="text" name="date_added" [(ngModel)] = "product.date_added" > -->
-            <!-- <input matInput type="text" name="date_added" [value]="product.date_added | date: 'dd/MM/yyyy'" (ngModelChange)="product.date_added = $event"> -->
             <!-- <input matInput type="text" name="date_added" [value]="product.date_added | date: 'dd/MM/yyyy'"> -->
         </mat-form-field>
 

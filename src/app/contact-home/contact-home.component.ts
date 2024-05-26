@@ -15,9 +15,11 @@ export class ContactHomeComponent {
   // displayedColumns: string[] = ['name', 'surname', 'lastname', 'telephone', 'email'];//se pasan los datos directamente y se elimina esta variable
   //ngAfterOnInit(){ //este seria para desdepues de que se haya cargado toda la vista, el html completo
   ngOnInit(){
-    this.dataSource = this.contactService.getContacts().subscribe(data => {
-      this.dataSource = data;
-      // debugger;
+    this.contactService.getContacts().subscribe(data => {
+      if(Array.isArray(data)){
+        this.dataSource = data;
+        // debugger;
+      }
     })
   }
   openDetailForm(row: any){

@@ -1,6 +1,9 @@
 .card {
   margin: 20px 40px 0 40px;
 }
+.card mat-card-title {
+  margin: 5px 10px;
+}
 form {
   display: flex;
   flex-direction: column;
@@ -13,9 +16,6 @@ form {
   margin: 8px;
   justify-content: flex-end; /*curiosamente esto centra el icono en el boton*/
 }
-.card mat-card-title {
-  margin: 5px 10px;
-}
 .card-content p {
   display: flex;
   align-items: center;
@@ -23,4 +23,15 @@ form {
 .card-content p mat-icon,
 .card-content strong {
   margin: 5px;
+}
+.mat-datepicker-toggle {
+  display: flex;
+  /* flex-direction: row; */
+  /* justify-content: flex-start;
+  align-content: flex-start; */
+}
+#date {
+  display: flex;
+  /* justify-content: flex-start;
+  align-content: flex-start; */
 }

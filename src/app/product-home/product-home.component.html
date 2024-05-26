@@ -5,7 +5,7 @@
       <td mat-cell *matCellDef="let product"> {{product.id}} </td>
     </ng-container>
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
       <td mat-cell *matCellDef="let product"> {{product.name}} </td>
     </ng-container>
     <ng-container matColumnDef="stock">
@@ -13,17 +13,17 @@
       <td mat-cell *matCellDef="let product"> {{product.stock}} </td>
     </ng-container>
     <ng-container matColumnDef="price">
-      <th mat-header-cell *matHeaderCellDef> Price </th>
+      <th mat-header-cell *matHeaderCellDef> Precio </th>
       <!-- <td mat-cell *matCellDef="let product"> {{product.price}} </td> -->
       <td mat-cell *matCellDef="let product"> {{product.price |currency:'EUR'}} </td>
     </ng-container>
     <ng-container matColumnDef="active">
-      <th mat-header-cell *matHeaderCellDef> Active </th>
+      <th mat-header-cell *matHeaderCellDef> Activo</th>
       <td mat-cell *matCellDef="let product"> {{product.active? 'Activado' : 'Desactivado'}} </td>
     </ng-container>
   
     <ng-container matColumnDef="date_added">
-      <th mat-header-cell *matHeaderCellDef> Date_added </th>
+      <th mat-header-cell *matHeaderCellDef> Fecha de alta </th>
       <!-- <td mat-cell *matCellDef="let product"> {{product.date_added}} </td> -->
       <td mat-cell *matCellDef="let product"> {{product.date_added |  date: 'dd/MM/yyyy'}}</td>
     </ng-container>
