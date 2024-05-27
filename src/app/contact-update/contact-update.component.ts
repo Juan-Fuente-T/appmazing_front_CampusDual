@@ -31,7 +31,8 @@ export class ContactUpdateComponent implements OnInit{
     });
   }
   cancelChange(){
-    this.router.navigate(['/contacts']);
+    // this.router.navigate(['/contacts']);
+    this.navigateToDetail();
   }
   navigateToDetail(){
     this.router.navigate(['/contact', this.route.snapshot.params['id']]);

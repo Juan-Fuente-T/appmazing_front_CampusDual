@@ -10,3 +10,16 @@ table {
   cursor: pointer;
   background-color: whitesmoke;
 }
+#new-contact {
+  margin: 20px 0 0 40px;
+}
+/* .mdc-dialog__container {
+  width: 2000px;
+  background-color: aqua;
+}
+.app-contact-delete {
+  background-color: rgb(21, 0, 255);
+}
+.mat-mdc-dialog-container {
+  background-color: rgb(21, 0, 255);
+} */

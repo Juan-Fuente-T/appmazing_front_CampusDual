@@ -22,10 +22,15 @@ import { ContactUpdateComponent } from './contact-update/contact-update.componen
 import { FormsModule } from '@angular/forms';
 import { ProductUpdateComponent } from './product-update/product-update.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatDialogModule} from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { ContactNewComponent } from './contact-new/contact-new.component';
+import { ProductNewComponent } from './product-new/product-new.component';
+import { ContactDeleteComponent } from './contact-delete/contact-delete.component';
+import { ProductDeleteComponent } from './product-delete/product-delete.component';
 
 registerLocaleData(localeEs);
 @NgModule({
@@ -36,8 +41,13 @@ registerLocaleData(localeEs);
     ContactDetailComponent,
     ProductDetailComponent,
     ContactUpdateComponent,
-    ProductUpdateComponent
+    ProductUpdateComponent,
+    ContactNewComponent,
+    ProductNewComponent,
+    ContactDeleteComponent,
+    ProductDeleteComponent
   ],
+  entryComponents:[ContactDeleteComponent],//indica que se abre por encima del resto
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -54,7 +64,8 @@ registerLocaleData(localeEs);
     MatNativeDateModule,
     MatSlideToggleModule,
     ReactiveFormsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDialogModule
   ],
   providers: [
   {

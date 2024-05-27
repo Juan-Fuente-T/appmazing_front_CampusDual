@@ -30,27 +30,28 @@ export class ProductUpdateComponent implements OnInit{
   //   this.PrdctsService.updateContact(this.contact);
   //   this.navigateDetail();
   // }
-  updateProduct() {
-    debugger;
+  updateProduct(): void {
+    // debugger;
     this.productsService.updateProduct(this.product).subscribe(data =>{
       this.navigateToDetail();
     });
   }
   cancelChange(){
-    this.router.navigate(['/products']);
+    // this.router.navigate(['/products']);
+    this.navigateToDetail();
   }
   navigateToDetail(){
     this.router.navigate(['/product', this.route.snapshot.params['id']]);
   }
   toggleActive() {
   const activeCopy = {...this.product};
-  console.log("ACtiveCopy", activeCopy);
+  // console.log("ACtiveCopy", activeCopy);
   activeCopy.active =!activeCopy.active;
-  console.log("activeCopy.active", activeCopy.active);
+  // console.log("activeCopy.active", activeCopy.active);
   this.product = activeCopy;
-  console.log("this.product", this.product);
+  // console.log("this.product", this.product);
   this.cdr.detectChanges();
-  console.log("this.cdr", this.cdr);
+  // console.log("this.cdr", this.cdr);
   }
   
 }

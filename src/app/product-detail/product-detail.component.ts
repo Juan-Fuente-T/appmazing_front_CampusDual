@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../products.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ProductDeleteComponent } from '../product-delete/product-delete.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-product-detail',
@@ -12,7 +14,8 @@ export class ProductDetailComponent {
   constructor(
     private productsService: ProductsService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ) {}
   // displayedColumns: string[] = ['name', 'surname', 'lastname', 'telephone', 'email'];//se pasan los datos directamente y se elimina esta variable
   //ngAfterOnInit(){ //este seria para desdepues de que se haya cargado toda la vista, el html completo
@@ -27,5 +30,8 @@ export class ProductDetailComponent {
 }
 closeProduct(){
   this.router.navigate(['/products']);
+}
+openDeleteDialog(productId: number):void{
+  const dialogRef = this.dialog.open(ProductDeleteComponent, {data: {productId: productId}})
 }
 }

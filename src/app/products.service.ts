@@ -37,5 +37,27 @@ export class ProductsService {
     const body = product;
     return this.http.put(url, body, {headers});
   }
+  newProduct(product: any): void{
+    const url = 'http://localhost:30030/products/add';
+    const headers = new HttpHeaders();
+    const body = product;
+    this.http.post(url, body, {headers}).subscribe();
+  }
+  // newProduct(product: any): Observable<any>{
+  //   const url = 'http://localhost:30030/products/add';
+  //   const headers = new HttpHeaders();
+  //   const body = product;
+  //   return this.http.post(url, body, {headers});
+  // }
+
+  deleteProduct(id: number): void{
+    const url = 'http://localhost:30030/products/delete';
+    const body = {id:id};
+    const options = {
+      body: body,
+      header:  new HttpHeaders()
+    };
+    this.http.delete(url, options).subscribe();
+  }
 }
 

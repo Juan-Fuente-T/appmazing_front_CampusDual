@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ContactsService } from '../contacts.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ContactDeleteComponent } from '../contact-delete/contact-delete.component';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-contact-detail',
@@ -12,8 +14,11 @@ export class ContactDetailComponent implements OnInit{
   constructor(
     private contactsService: ContactsService,
     private route: ActivatedRoute,
-    private router: Router
-  ) {}
+    private router: Router,
+    public dialog: MatDialog
+    
+    
+  ){} 
   // displayedColumns: string[] = ['name', 'surname', 'lastname', 'telephone', 'email'];//se pasan los datos directamente y se elimina esta variable
   //ngAfterOnInit(){ //este seria para desdepues de que se haya cargado toda la vista, el html completo
   ngOnInit(): void{ 
@@ -28,4 +33,9 @@ export class ContactDetailComponent implements OnInit{
   closeContact(){
     this.router.navigate(['/contacts']);
   }
+
+  openDeleteDialog(contactId: number):void{
+    const dialogRef = this.dialog.open(ContactDeleteComponent, {data: {contactId: contactId}})
+  }
 }
+

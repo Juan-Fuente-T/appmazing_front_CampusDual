@@ -37,4 +37,26 @@ export class ContactsService {
     const body = contact;
     return this.http.put(url, body, {headers});
   }
+  newContact(contact: any): void{
+    const url = 'http://localhost:30030/contacts/add';
+    const headers = new HttpHeaders();
+    const body = contact;
+    this.http.post(url, body, {headers}).subscribe();
+  }
+  // newContact(contact: any): Observable<any>{
+  //   const url = 'http://localhost:30030/contacts/add';
+  //   const headers = new HttpHeaders();
+  //   const body = contact;
+  //   return this.http.post(url, body, {headers});
+  // }
+
+  deleteContact(id:number): void{
+    const url = 'http://localhost:30030/contacts/delete';
+    const body = {id:id};
+    const options = {
+      body: body,
+      header:  new HttpHeaders()
+    };
+    this.http.delete(url, options).subscribe();
+  }
 }
