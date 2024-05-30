@@ -31,6 +31,8 @@ import { ContactNewComponent } from './contact-new/contact-new.component';
 import { ProductNewComponent } from './product-new/product-new.component';
 import { ContactDeleteComponent } from './contact-delete/contact-delete.component';
 import { ProductDeleteComponent } from './product-delete/product-delete.component';
+import { ChartsComponent } from './charts/charts.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 registerLocaleData(localeEs);
 @NgModule({
@@ -45,7 +47,8 @@ registerLocaleData(localeEs);
     ContactNewComponent,
     ProductNewComponent,
     ContactDeleteComponent,
-    ProductDeleteComponent
+    ProductDeleteComponent,
+    ChartsComponent
   ],
   entryComponents:[ContactDeleteComponent],//indica que se abre por encima del resto
   imports: [
@@ -65,7 +68,8 @@ registerLocaleData(localeEs);
     MatSlideToggleModule,
     ReactiveFormsModule,
     MatCheckboxModule,
-    MatDialogModule
+    MatDialogModule,
+    NgxChartsModule
   ],
   providers: [
   {

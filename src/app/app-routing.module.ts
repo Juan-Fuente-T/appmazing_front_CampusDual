@@ -8,8 +8,10 @@ import { ContactUpdateComponent } from './contact-update/contact-update.componen
 import { ProductUpdateComponent } from './product-update/product-update.component';
 import { ContactNewComponent } from './contact-new/contact-new.component';
 import { ProductNewComponent } from './product-new/product-new.component';
+import { ChartsComponent } from './charts/charts.component';
 
 const routes: Routes = [
+  {path: '', component: ChartsComponent},
   {path: 'contacts', component: ContactHomeComponent},
   {path: 'products', component: ProductHomeComponent},
   {path: 'contact/new', component: ContactNewComponent},

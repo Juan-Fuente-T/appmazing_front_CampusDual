@@ -13,3 +13,14 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+.chart-legend {
+  position: absolute;
+  top: 80%;
+  left: 20%;
+}
+ngx-charts-gauge {
+  position: relative;
+}
+.legend-labels {
+  width: fit-content !important;
+}

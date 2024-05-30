@@ -1,0 +1,83 @@
+<mat-card class="card">
+    <mat-card-title>Gráficas de Contacto</mat-card-title>
+    <mat-card-content>
+        <div class="chart-row">
+            <div>
+                <p><Strong>Initiales de Apellido</Strong></p>
+                <ngx-charts-bar-vertical [view]="[400, 300]" [results]="initialLetter" [xAxis]="true" 
+                [yAxis]="true" [legend]="false" [showXAxisLabel]="true" [scheme]="'ocean'" 
+                xAxisLabel="Iniciales de apellido"  yAxisLabel="Number of contacts" [yAxisTickFormatting]="formatAxisTick">
+            </ngx-charts-bar-vertical>
+        </div>
+        <div>
+            <p><Strong>Largo del Nombre</Strong></p>
+            <ngx-charts-line-chart [view]="[400, 300]" [results]="contactsByFullName" [xAxis]="true" 
+            [yAxis]="true" [legend]="false" [showXAxisLabel]="true" 
+            xAxisLabel="Largo de nombre completo"  yAxisLabel="Numero de contactos" [scheme]="'ocean'" >
+        </ngx-charts-line-chart>
+    </div>
+</div>
+<div class="chart-row">
+    <div>
+        <p><Strong>Extensión de email</Strong></p>
+        <ngx-charts-pie-chart [view]="[400, 300]" [results]="emailExtensions" 
+        [labels]="true" xAxisLabel="Extensiones de email" [scheme]="'ocean'"  [doughnut]=" true">
+    </ngx-charts-pie-chart>
+</div>
+<div>
+    <p><Strong>Prefijos</Strong></p>
+    <ngx-charts-bar-horizontal [view]="[400, 300]" [results]="phonePrefixData" [xAxis]="true" 
+    [yAxis]="true" [legend]="false" [showXAxisLabel]="true"  [showYAxisLabel]="true" 
+    xAxisLabel="Número de veces repetido"  yAxisLabel="Prefijos de teléfono" [scheme]="'ocean'" >
+    </ngx-charts-bar-horizontal>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
+<mat-card class="card">
+    <mat-card-title>Gráficas de Producto</mat-card-title>
+    <mat-card-content>
+        <div class="chart-row">
+            <div>
+                <p><Strong>Productos</Strong></p>
+                <ngx-charts-bar-vertical [view]="[400, 400]" [results]="productsStock" [xAxis]="true" 
+                [yAxis]="true" [legend]="false" [showXAxisLabel]="true" [scheme]="'ocean'" 
+                xAxisLabel="Productos"  yAxisLabel="Cantidad de productos" [showDataLabel]="true">
+                <!-- [yAxisTickFormatting]="formatAxisTick" [yScaleMin]="minValue"> -->
+
+            </ngx-charts-bar-vertical>
+            </div>
+            <div>
+                <p><Strong>Rango de precios</Strong></p>
+                <ngx-charts-line-chart [view]="[400, 400]" [results]="productsPriceRange"  [xAxis]="true" 
+                [yAxis]="true" [legend]="false" [showXAxisLabel]="true"  [showYAxisLabel]="true" [scheme]="'ocean'" 
+                xAxisLabel="Rango de precios"  yAxisLabel="Numero de productos" [animations]="true">
+        </ngx-charts-line-chart>
+            </div>
+        </div>
+        <div class="chart-row">
+            <div>
+                <p><Strong>Estado de los productos</Strong></p>
+                <!-- <ngx-charts-gauge  [view]="[400, 400]" [results]="stateProducts" [max]="30" [scheme]="colorScheme"> -->
+                <ngx-charts-gauge  [view]="[500, 500]"[results]="stateProducts"  [legend]="true"
+                [max]="maxStateValue"  [showText]="true" [legendTitle]="'Estado del producto'" 
+                [tooltipDisabled]="false" [smallSegments]="0" [units]="'Total'" [scheme]="'ocean'" 
+                 [legendPosition]="legendPosition" [axisTickFormatting]="formatAxisTick2" >
+                </ngx-charts-gauge>
+            </div>
+            <div>
+                <p><Strong>Estado del Stock</Strong></p>
+                <!-- <ngx-charts-gauge  [view]="[400, 400]" [results]="stateProducts" [max]="30" [scheme]="colorScheme"> -->
+                <ngx-charts-gauge  [view]="[500, 500]"[results]="stockProducts"  [legend]="true"
+                [max]="maxTotalProducts"  [showText]="true" [legendTitle]="'Estado del stock'" 
+                [tooltipDisabled]="false" [smallSegments]="0" [units]="'Total'" [scheme]="'ocean'" 
+                 [legendPosition]="legendPosition" [axisTickFormatting]="formatAxisTick2" >
+                </ngx-charts-gauge>
+            </div>
+            <div>
+
+            </div>
+        </div>
+    </mat-card-content>
+
+</mat-card>
