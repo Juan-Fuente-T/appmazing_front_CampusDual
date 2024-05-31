@@ -24,6 +24,7 @@ export class ChartsComponent implements OnInit{
   productsPriceInactiveRange: any[] = [];
   stateProducts: any[] = [];
   stockProducts: any[] = [];
+  productsPerMonth: any[] = [];
 
   colorScheme = {
     domain: ['#CFC0BB', '#7aa3e5']
@@ -33,7 +34,6 @@ export class ChartsComponent implements OnInit{
   // };
 
 
-  // minValue = 10;
   ngOnInit(): void {
     this.contactsService.getContacts().subscribe((contacts: any[]) => {
       //aqui llega la lista (array) de datos 
@@ -70,9 +70,37 @@ export class ChartsComponent implements OnInit{
       // this.stateProducts = this.productsState(products);
       this.stateProducts = this.showProductState(products);
       this.stockProducts = this.showProductStock(products);
+      this.productsPerMonth = this.showProductsPerMonth(products);
+
     });
   }
 
+
+
+ showProductsPerMonth(products: any[]): any[] {
+  
+      const monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+      
+      const productsPerMonth: any []= []
+      // const productsMap = new Map(products.map(product => [new Date(product.date_added).getMonth(), product]));
+      // const prods = productsMap.get(4);
+      // productsPerMonth.push(productsMap);
+      // console.log("MAP", prods);
+      products.forEach(product => {
+        const date = new Date(product.date_added);
+        const month = date.getMonth();
+        const existingMonth = productsPerMonth.find((item: { name: string }) => item.name === monthNames[month]);        
+        if(existingMonth){
+          existingMonth.value++;
+        }else{
+          productsPerMonth.push({name: monthNames[month], value: 1})
+        }
+      });
+    
+      return productsPerMonth;
+    }
+
+    
   showProductStock(products: any[]): any[] {
   let activeCountStock: any = 0;
   let inactiveCountStock: any = 0;
@@ -163,33 +191,8 @@ showProductState(products: any[]): any[] {
   //   })
   //   return stateProduct;
   // }
-  // calculatePriceRange(contacts: any[]): any[]{
-  //   const tempProductsByPrice= [{
-  //     name: 'Products',
-  //     series:<any[]> []
-  //   }]
-    
-  //   contacts.forEach(product=>{
-  //     const price = product.price;
-  //     const range = `${price - (price % 5)} - ${price - (price % 5)+ 4} $.`;
-  //     if (product.active){
-  //     // const existingRange = tempProductsByPrice[0].series.find(item => item.price === range);
-  //     const existingRange = tempProductsByPrice[0].series.find(item => item.name === range);
-  //     if(existingRange){
-  //       existingRange.value++;
-  //     }else{
-  //       tempProductsByPrice[0].series.push({name: range, value: 1})
-  //     }
-  //   }
-  //   });
-  //   // return tempProductsByPrice;
-  //   return tempProductsByPrice.map(entry =>{
-  //     return{
-  //       ...entry,
-  //       series: entry.series.sort((a,b) => Number(a.name.split('-')[0]) - Number(b.name.split('-')[0]))
-  //     }
-  //   });
-  // }
+
+
 
   /////////////////////////*****************////////////////////////
 

@@ -74,8 +74,15 @@
                  [legendPosition]="legendPosition" [axisTickFormatting]="formatAxisTick2" >
                 </ngx-charts-gauge>
             </div>
+        </div>
+            <div class="chart-row">
             <div>
-
+                <p><Strong>Alta de productos por mes</Strong></p>
+                <ngx-charts-bar-horizontal [view]="[400, 400]" [results]="productsPerMonth" [xAxis]="true" 
+                [yAxis]="true" [legend]="true" [showXAxisLabel]="true" [scheme]="'ocean'" 
+                xAxisLabel="Meses de alta"  yAxisLabel="Cantidad de productos" [showDataLabel]="true">
+                <!-- [yAxisTickFormatting]="formatAxisTick" [yScaleMin]="minValue"> -->
+                </ngx-charts-bar-horizontal>
             </div>
         </div>
     </mat-card-content>
